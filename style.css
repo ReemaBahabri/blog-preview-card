@@ -1,0 +1,171 @@
+/* =========================
+   CSS Variables (Style Guide)
+   ========================= */
+:root {
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --gray-500: hsl(0, 0%, 42%);
+  --gray-950: hsl(0, 0%, 7%);
+}
+
+/* =========================
+   Minimal reset
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+/* =========================
+   Page layout
+   ========================= */
+/* I’m using Flex here because I only need one-direction alignment
+   (centering a single card vertically and horizontally) */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Extra padding so the card doesn’t touch the screen edges on mobile */
+  padding: 24px;
+
+  background-color: var(--yellow);
+  font-family: "Figtree", sans-serif;
+  color: var(--gray-950);
+  line-height: 1.5;
+}
+
+/* =========================
+   Card
+   ========================= */
+/* Flex column is perfect here because the content flows vertically */
+.card {
+  /* 327px (mobile) -> grows smoothly -> 384px (desktop), no media queries */
+  width: clamp(327px, 32vw, 384px);
+
+  background-color: var(--white);
+  border: 1px solid var(--gray-950);
+  border-radius: 20px;
+  padding: 24px;
+
+  /* Shadow matches the challenge style */
+  box-shadow: 8px 8px 0 var(--gray-950);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  /* Polished feel */
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Hover and focus states (focus-within triggers when link is focused) */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 12px 12px 0 var(--gray-950);
+}
+
+/* =========================
+   Image
+   ========================= */
+/* The design has slightly more space under the image,
+   so I add margin-bottom in addition to the gap */
+.card__image {
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   Badge
+   ========================= */
+.badge {
+  align-self: flex-start;
+  background-color: var(--yellow);
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 800;
+}
+
+/* =========================
+   Date
+   ========================= */
+.date {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+}
+
+/* =========================
+   Title
+   ========================= */
+.title {
+  /* Slightly smaller on mobile and larger on desktop, without media queries */
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.title__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title__link:hover {
+  color: var(--yellow);
+}
+
+/* Accessible focus style for keyboard users */
+.title__link:focus-visible {
+  outline: 2px solid var(--gray-950);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* =========================
+   Description
+   ========================= */
+.description {
+  /* Slightly smaller on mobile, reaches 16px on larger screens */
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 500;
+  color: var(--gray-500);
+
+  /* Extra spacing before author (matches design) */
+  margin-bottom: 12px;
+}
+
+/* =========================
+   Author
+   ========================= */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
