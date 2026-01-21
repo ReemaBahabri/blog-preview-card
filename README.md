@@ -32,8 +32,8 @@ This screenshot shows the final result of my solution, matching the mobile and d
 
 ### Links
 
-- Solution URL: (will be added after submission)
-- Live Site URL: (Will be added after deploying with GitHub Pages)
+- Solution URL: [](https://www.frontendmentor.io/solutions/blog-preview-card-using-semantic-html-and-flexbox-IMrf4dUuZn)
+- Live Site URL: [](https://reemabahabri.github.io/blog-preview-card/)
 
 ## My process
 
@@ -57,6 +57,7 @@ One key decision was choosing **Flexbox** instead of Grid, since the card conten
   gap: 12px;
 }
 
+```
 This approach keeps spacing logic inside the container, makes the layout easier to maintain, and allows quick adjustments without touching individual elements.
 
 I also practiced:
